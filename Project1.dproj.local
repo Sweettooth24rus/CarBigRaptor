@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.747,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.947,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.947,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.452,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.074,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.476,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit3.pas</Transaction>
+    <Transaction>2021.03.30 23:52:52.554,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\RKP-4\Unit5.pas</Transaction>
+  </Transactions>
+</BorlandProject>
