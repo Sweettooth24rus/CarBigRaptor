@@ -125,86 +125,30 @@ object Form3: TForm3
         TitleFont.Style = []
         Columns = <
           item
+            Alignment = taCenter
             Expanded = False
-            FieldName = 'CarTechName'
-            Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077' '#1084#1072#1096#1080#1085#1099
-            Width = 200
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarBodyName'
-            Title.Caption = #1050#1091#1079#1086#1074
-            Width = 150
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'EngineTypeName'
-            Title.Caption = #1058#1080#1087' '#1076#1074#1080#1075#1072#1090#1077#1083
-            Width = 120
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechEngineVolume'
-            Title.Caption = #1054#1073#1098#1105#1084' '#1076#1074#1080#1075#1072#1090#1077#1083#1103
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechPower'
-            Title.Caption = #1052#1086#1097#1085#1086#1089#1090#1100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'GearType'
-            Title.Caption = #1050#1086#1088#1086#1073#1082#1072' '#1087#1077#1088#1077#1076#1072#1095
-            Width = 150
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'DriveType'
-            Title.Caption = #1055#1088#1080#1074#1086#1076
+            FieldName = 'CarCost'
+            Title.Alignment = taCenter
+            Title.Caption = #1057#1090#1086#1080#1084#1086#1089#1090#1100
             Width = 80
             Visible = True
           end
           item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'CarName'
+            Title.Alignment = taCenter
+            Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+            Width = 200
+            Visible = True
+          end
+          item
+            Alignment = taCenter
             Expanded = False
             FieldName = 'CarBirth'
+            Title.Alignment = taCenter
             Title.Caption = #1043#1086#1076
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarCost'
-            Title.Caption = #1057#1090#1086#1080#1084#1086#1089#1090#1100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarDate'
-            Title.Caption = #1044#1072#1090#1072
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarPriority'
-            Title.Caption = #1055#1088#1080#1086#1088#1080#1090#1077#1090
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarID'
-            Width = 0
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechID'
-            Width = 0
+            Width = 40
             Visible = True
           end>
       end
@@ -409,40 +353,6 @@ object Form3: TForm3
         TitleFont.Height = -13
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'SellerID'
-            Width = 0
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SellerName'
-            Title.Caption = #1048#1084#1103' '#1087#1088#1086#1076#1072#1074#1094#1072
-            Width = 200
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SellerPhone'
-            Title.Caption = #1058#1077#1083#1077#1092#1086#1085
-            Width = 100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'AdressName'
-            Title.Caption = #1040#1076#1088#1077#1089' '#1073#1083#1086#1082#1072
-            Width = 100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SellerImage'
-            Width = 0
-            Visible = True
-          end>
       end
       object SellerName: TEdit
         Left = 3
@@ -605,79 +515,6 @@ object Form3: TForm3
         TitleFont.Height = -13
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'SoldCarID'
-            Width = 0
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechName'
-            Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
-            Width = 150
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarBodyName'
-            Title.Caption = #1050#1091#1079#1086#1074
-            Width = 130
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'EngineTypeName'
-            Title.Caption = #1044#1074#1080#1075#1072#1090#1077#1083#1100
-            Width = 100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechEngineVolume'
-            Title.Caption = #1054#1073#1098#1105#1084' '#1076#1074#1080#1075#1072#1090#1077#1083#1103
-            Width = 110
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CarTechPower'
-            Title.Caption = #1052#1086#1097#1085#1086#1089#1090#1100' '#1076#1074#1080#1075#1072#1090#1077#1083#1103
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'GearType'
-            Title.Caption = #1050#1086#1088#1086#1073#1082#1072' '#1087#1077#1088#1077#1076#1072#1095
-            Width = 130
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'DriveType'
-            Title.Caption = #1055#1088#1080#1074#1086#1076
-            Width = 100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SoldCarBirth'
-            Title.Caption = #1044#1072#1090#1072' '#1087#1088#1086#1080#1079#1074#1086#1076#1089#1090#1074#1072
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SoldCarCost'
-            Title.Caption = #1057#1090#1086#1080#1084#1086#1089#1090#1100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SoldCarDate'
-            Title.Caption = #1044#1072#1090#1072' '#1087#1088#1086#1076#1072#1078#1080
-            Visible = True
-          end>
       end
       object SoldCarInfo: TRichEdit
         Left = 1084

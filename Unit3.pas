@@ -223,23 +223,23 @@ end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
-  while not DataModule2.Q_CarBody.Eof do begin
-    CarBody.Items.Add(DataModule2.Q_CarBody.FieldByName('CarBodyName').AsString);
-    DataModule2.Q_CarBody.Next;
-  end;
-  while not DataModule2.Q_CarEngine.Eof do begin
-    CarEngine.Items.Add(DataModule2.Q_CarEngine.FieldByName('EngineTypeName').AsString);
-    DataModule2.Q_CarEngine.Next;
-  end;
-  while not DataModule2.Q_Sellers.Eof do begin
-    CarSeller.Items.Add(DataModule2.Q_Sellers.FieldByName('SellerName').AsString);
-    DataModule2.Q_Sellers.Next;
-  end;
-  while not DataModule2.Q_Address.Eof do begin
-    SellerAddress.Items.Add(DataModule2.Q_Address.FieldByName('AdressName').AsString);
-    SellerFilter.Items.Add(DataModule2.Q_Address.FieldByName('AdressName').AsString);
-    DataModule2.Q_Address.Next;
-  end;
+  //while not DataModule2.Q_CarBody.Eof do begin
+  //  CarBody.Items.Add(DataModule2.Q_CarBody.FieldByName('CarBodyName').AsString);
+  //  DataModule2.Q_CarBody.Next;
+  //end;
+  //while not DataModule2.Q_CarEngine.Eof do begin
+  //  CarEngine.Items.Add(DataModule2.Q_CarEngine.FieldByName('EngineTypeName').AsString);
+  //  DataModule2.Q_CarEngine.Next;
+  //end;
+  //while not DataModule2.Q_Sellers.Eof do begin
+  //  CarSeller.Items.Add(DataModule2.Q_Sellers.FieldByName('SellerName').AsString);
+  //  DataModule2.Q_Sellers.Next;
+  //end;
+  //while not DataModule2.Q_Address.Eof do begin
+  //  SellerAddress.Items.Add(DataModule2.Q_Address.FieldByName('AdressName').AsString);
+  //  SellerFilter.Items.Add(DataModule2.Q_Address.FieldByName('AdressName').AsString);
+  //  DataModule2.Q_Address.Next;
+  //end;
 end;
 
 procedure TForm3.ImageButtonClick(Sender: TObject);
@@ -261,9 +261,9 @@ begin
   with DataModule2.Q_Act do
   begin
     SQL.Clear;
-    SQL.Add('INSERT INTO seller (SellerName, SellerPhone, AddressID, SellerImage)');
+    //SQL.Add('INSERT INTO seller (SellerName, SellerPhone, AddressID, SellerImage)');
     SQL.Add('VALUES (:Name, :Phone, :Address, :Image)');
-    Parameters.ParamByName('Name').Value := SellerName.Text;
+    //Parameters.ParamByName('Name').Value := SellerName.Text;
     Parameters.ParamByName('Phone').Value := SellerPhone.Text;
     Parameters.ParamByName('Address').Value := SellerAddress.ItemIndex + 1;
     Parameters.ParamByName('Image').Value := SellerImagePath;
@@ -305,7 +305,7 @@ begin
   begin
     SQL.Clear;
     SQL.Add('UPDATE seller SET ');
-    SQL.Add('SellerName=''' + SellerName.Text + ''', ');
+    //SQL.Add('SellerName=''' + SellerName.Text + ''', ');
     SQL.Add('SellerPhone=''' + SellerPhone.Text + ''', ');
     SQL.Add('AddressID=''' + IntToStr(SellerAddress.ItemIndex + 1) + ''', ');
     SQL.Add('SellerImage=''' + StringReplace(SellerImagePath, '\', '\\', [rfReplaceAll]) + ''' ');
