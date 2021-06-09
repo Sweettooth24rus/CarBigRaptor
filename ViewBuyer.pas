@@ -8,7 +8,7 @@ uses
   Vcl.DBGrids, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Imaging.JPEG,
   Data.Bind.GenData, Vcl.Bind.GenData, System.Rtti, System.Bindings.Outputs,
   Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Data.Bind.Components,
-  Data.Bind.DBScope, Data.Bind.ObjectScope;
+  Data.Bind.DBScope, Data.Bind.ObjectScope, Vcl.ExtDlgs;
 
 type
   TForm1 = class(TForm)
@@ -79,6 +79,25 @@ type
     ImageGear: TImage;
     ButtonClear: TButton;
     ButtonSellCar: TButton;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    ButtonLoadSeller: TButton;
+    SellerPhone: TEdit;
+    SellerName: TEdit;
+    ButtonDeleteSeller: TButton;
+    SellerDelete: TButton;
+    SellerImage: TImage;
+    Label10: TLabel;
+    Label26: TLabel;
+    SellerUpdate: TButton;
+    OpenPictureDialog: TOpenPictureDialog;
+    DBGridChats: TDBGrid;
+    ButtonRefresh: TButton;
+    ButtonSend: TButton;
+    EditChat: TEdit;
+    StringGridChat: TStringGrid;
     procedure ImageBrandClick(Sender: TObject);
     procedure ImageModelClick(Sender: TObject);
     procedure ImageGearClick(Sender: TObject);
@@ -97,12 +116,20 @@ type
     procedure ButtonFilterClick(Sender: TObject);
     procedure ButtonSellCarClick(Sender: TObject);
     procedure ButtonChatClick(Sender: TObject);
+    procedure ButtonLoadSellerClick(Sender: TObject);
+    procedure ButtonDeleteSellerClick(Sender: TObject);
+    procedure SellerUpdateClick(Sender: TObject);
+    procedure SellerDeleteClick(Sender: TObject);
+    procedure ButtonRefreshClick(Sender: TObject);
+    procedure ButtonSendClick(Sender: TObject);
+    procedure TabSheet3Show(Sender: TObject);
   private
     { Private declarations }
     Sort: Bool;
     Filter: Bool;
   public
     { Public declarations }
+    SellerImagePath: AnsiString;
   end;
 
 var
@@ -140,6 +167,12 @@ begin
   RadioButtonWheelAny.Checked := True;
   CheckBoxPhoto.Checked := False;
   ComboBoxSortChange(ButtonClear);
+end;
+
+procedure TForm1.ButtonDeleteSellerClick(Sender: TObject);
+begin
+  SellerImagePath := 'D:\Images\NI.jpg';
+  SellerImage.Picture.LoadFromFile('D:\Images\NI.jpg');
 end;
 
 procedure TForm1.ButtonFilterClick(Sender: TObject);
@@ -247,9 +280,73 @@ begin
   end;
 end;
 
+procedure TForm1.ButtonLoadSellerClick(Sender: TObject);
+begin
+  if OpenPictureDialog.Execute then
+    if FileExists(OpenPictureDialog.FileName) then begin
+      SellerImage.Picture.LoadFromFile(OpenPictureDialog.FileName);
+      SellerImagePath := OpenPictureDialog.FileName;
+    end
+    else begin
+      SellerImagePath := 'D:\Images\NI.jpg';
+      SellerImage.Picture.LoadFromFile('D:\Images\NI.jpg');
+      raise Exception.Create('File does not exist.');
+    end;
+end;
+
+procedure TForm1.ButtonRefreshClick(Sender: TObject);
+begin
+  DataModule2.Q_Chat.Active := False;
+  DataModule2.Q_Chat.Active := True;
+end;
+
 procedure TForm1.ButtonSellCarClick(Sender: TObject);
 begin
   Form6.Show;
+end;
+
+procedure TForm1.ButtonSendClick(Sender: TObject);
+begin
+  with DataModule2.Q_Act do
+  begin
+    SQL.Clear;
+    SQL.Add('CALL InsertChat(');
+    SQL.Add(IntToStr(DataModule2.UserID));
+    SQL.Add(', ');
+    SQL.Add(DataModule2.Q_Chat.FieldByName('UserID').AsString);
+    SQL.Add(', ');
+    SQL.Add(QuotedStr(EditChat.Text));
+    SQL.Add(')');
+    ExecSQL;
+
+    StringGridChat.Cols[0].Clear;
+    StringGridChat.Cols[1].Clear;
+    StringGridChat.RowCount := 1;
+
+    SQL.Clear;
+    SQL.Add('SELECT Setter, Getter, Text FROM chat WHERE (Setter = ');
+    SQL.Add(DataModule2.Q_Chat.FieldByName('Setter').AsString);
+    SQL.Add(' AND Getter = ');
+    SQL.Add(DataModule2.Q_Chat.FieldByName('Getter').AsString);
+    SQL.Add(') OR (Setter = ');
+    SQL.Add(DataModule2.Q_Chat.FieldByName('Getter').AsString);
+    SQL.Add(' AND Getter = ');
+    SQL.Add(DataModule2.Q_Chat.FieldByName('Setter').AsString);
+    SQL.Add(') ORDER BY MessageID ASC');
+    ExecSQL;
+    Active := False;
+    Active := True;
+
+    while not Eof do begin
+      if FieldByName('Setter').AsInteger = DataModule2.UserID then
+        StringGridChat.Cells[1, StringGridChat.RowCount - 1] := FieldByName('Text').AsString
+      else
+        StringGridChat.Cells[0, StringGridChat.RowCount - 1] := FieldByName('Text').AsString;
+      StringGridChat.RowCount := StringGridChat.RowCount + 1;
+      Next;
+    end;
+  end;
+  EditChat.Text := '';
 end;
 
 procedure TForm1.ComboBoxBrandChange(Sender: TObject);
@@ -332,6 +429,44 @@ begin
     ComboBoxDrive.Items.Add(DataModule2.Q_Drive.FieldByName('DriveType').AsString);
     DataModule2.Q_Drive.Next;
   end;
+
+  DataModule2.Q_Act.SQL.Clear;
+  DataModule2.Q_Act.SQL.Add('SELECT UserID, UserName, ');
+  DataModule2.Q_Act.SQL.Add('UserPhone, UserImage ');
+  DataModule2.Q_Act.SQL.Add('FROM user WHERE UserID = ');
+  DataModule2.Q_Act.SQL.Add(IntToStr(DataModule2.UserID));
+  DataModule2.Q_Act.ExecSQL;
+  DataModule2.Q_Act.Active := False;
+  DataModule2.Q_Act.Active := True;
+  SellerImage.Picture.LoadFromFile(DataModule2.Q_Act.FieldByName('UserImage').AsString);
+  SellerName.Text := DataModule2.Q_Act.FieldByName('UserName').AsString;
+  SellerPhone.Text := DataModule2.Q_Act.FieldByName('UserPhone').AsString;
+
+  DataModule2.Q_Act.SQL.Clear;
+  DataModule2.Q_Act.SQL.Add('SELECT MAX(MessageID) AS MMID FROM chat WHERE Setter = 1 OR Getter = 1 GROUP BY IF(Getter > Setter, CONCAT(Setter, "-", Getter), CONCAT(Getter, "-", Setter)) ORDER BY MMID DESC');
+  DataModule2.Q_Act.ExecSQL;
+  DataModule2.Q_Act.Active := False;
+  DataModule2.Q_Act.Active := True;
+  DataModule2.Q_Chat.SQL.Clear;
+  DataModule2.Q_Chat.SQL.Add('SELECT UserID, UserName, Text, Setter, Getter FROM Chat, User WHERE UserID = IF(');
+  DataModule2.Q_Chat.SQL.Add(IntToStr(DataModule2.UserID));
+  DataModule2.Q_Chat.SQL.Add(' = Setter, Getter, Setter)');
+  if DataModule2.Q_Act.Eof then
+    DataModule2.Q_Chat.SQL.Add(' AND MessageID = 0')
+  else begin
+    DataModule2.Q_Chat.SQL.Add('AND(MessageID = ');
+    DataModule2.Q_Chat.SQL.Add(DataModule2.Q_Act.FieldByName('MMID').AsString);
+    DataModule2.Q_Act.Next;
+    while not DataModule2.Q_Act.Eof do begin
+      DataModule2.Q_Chat.SQL.Add(' OR MessageID = ');
+      DataModule2.Q_Chat.SQL.Add(DataModule2.Q_Act.FieldByName('MMID').AsString);
+      DataModule2.Q_Act.Next;
+    end;
+    DataModule2.Q_Chat.SQL.Add(') ORDER BY MessageID DESC')
+  end;
+  DataModule2.Q_Chat.ExecSQL;
+  DataModule2.Q_Chat.Active := False;
+  DataModule2.Q_Chat.Active := True;
 end;
 
 procedure TForm1.ImageBodyClick(Sender: TObject);
@@ -398,6 +533,60 @@ begin
     Label4.Caption := 'Сортировка по возрастанию';
   Sort := NOT Sort;
   ComboBoxSortChange(Label4);
+end;
+
+procedure TForm1.SellerDeleteClick(Sender: TObject);
+begin
+  with DataModule2.Q_Act do
+  begin
+    SQL.Clear;
+    SQL.Add('DELETE FROM User WHERE UserID = ' + IntToStr(DataModule2.UserID));
+    ExecSQL;
+  end;
+  Form4.Show;
+end;
+
+procedure TForm1.SellerUpdateClick(Sender: TObject);
+begin
+  with DataModule2.Q_Act do
+  begin
+    SQL.Clear;
+    SQL.Add('UPDATE user SET ');
+    SQL.Add('UserName=''' + SellerName.Text + ''', ');
+    SQL.Add('UserPhone=''' + SellerPhone.Text + ''', ');
+    SQL.Add('UserImage=''' + StringReplace(SellerImagePath, '\', '\\', [rfReplaceAll]) + ''' ');
+    SQL.Add(' WHERE UserID = ' + IntToStr(DataModule2.UserID));
+    ExecSQL;
+  end;
+end;
+
+procedure TForm1.TabSheet3Show(Sender: TObject);
+begin
+  DataModule2.Q_Act.SQL.Clear;
+  DataModule2.Q_Act.SQL.Add('SELECT MAX(MessageID) AS MMID FROM chat WHERE Setter = 1 OR Getter = 1 GROUP BY IF(Getter > Setter, CONCAT(Setter, "-", Getter), CONCAT(Getter, "-", Setter)) ORDER BY MMID DESC');
+  DataModule2.Q_Act.ExecSQL;
+  DataModule2.Q_Act.Active := False;
+  DataModule2.Q_Act.Active := True;
+  DataModule2.Q_Chat.SQL.Clear;
+  DataModule2.Q_Chat.SQL.Add('SELECT UserID, UserName, Text, Setter, Getter FROM Chat, User WHERE UserID = IF(');
+  DataModule2.Q_Chat.SQL.Add(IntToStr(DataModule2.UserID));
+  DataModule2.Q_Chat.SQL.Add(' = Setter, Getter, Setter)');
+  if DataModule2.Q_Act.Eof then
+    DataModule2.Q_Chat.SQL.Add(' AND MessageID = 0')
+  else begin
+    DataModule2.Q_Chat.SQL.Add('AND(MessageID = ');
+    DataModule2.Q_Chat.SQL.Add(DataModule2.Q_Act.FieldByName('MMID').AsString);
+    DataModule2.Q_Act.Next;
+    while not DataModule2.Q_Act.Eof do begin
+      DataModule2.Q_Chat.SQL.Add(' OR MessageID = ');
+      DataModule2.Q_Chat.SQL.Add(DataModule2.Q_Act.FieldByName('MMID').AsString);
+      DataModule2.Q_Act.Next;
+    end;
+    DataModule2.Q_Chat.SQL.Add(') ORDER BY MessageID DESC')
+  end;
+  DataModule2.Q_Chat.ExecSQL;
+  DataModule2.Q_Chat.Active := False;
+  DataModule2.Q_Chat.Active := True;
 end;
 
 end.

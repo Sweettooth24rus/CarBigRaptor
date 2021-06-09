@@ -19,14 +19,10 @@ object Form7: TForm7
     Top = 8
     Width = 1305
     Height = 577
-    ActivePage = TabSheet1
+    ActivePage = TabSheet4
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1040#1074#1090#1086#1084#1086#1073#1080#1083#1080' '#1074' '#1087#1088#1086#1076#1072#1078#1077
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label2: TLabel
         Left = 787
         Top = 251
@@ -10212,10 +10208,6 @@ object Form7: TForm7
     object TabSheet2: TTabSheet
       Caption = #1051#1080#1095#1085#1099#1081' '#1082#1072#1073#1080#1085#1077#1090
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 28
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object SellerImage: TImage
         Left = 3
         Top = 0
@@ -10292,10 +10284,6 @@ object Form7: TForm7
     object TabSheet3: TTabSheet
       Caption = #1042#1072#1096#1080' '#1084#1072#1096#1080#1085#1099' '#1074' '#1087#1088#1086#1076#1072#1078#1077
       ImageIndex = 2
-      ExplicitLeft = 8
-      ExplicitTop = 28
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label1: TLabel
         Left = 613
         Top = 3
@@ -17661,10 +17649,6 @@ object Form7: TForm7
       Caption = #1063#1072#1090
       ImageIndex = 3
       OnShow = TabSheet4Show
-      ExplicitLeft = 8
-      ExplicitTop = 28
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBGridChats: TDBGrid
         Left = 3
         Top = 3
@@ -17720,7 +17704,7 @@ object Form7: TForm7
         Left = 647
         Top = 521
         Width = 566
-        Height = 25
+        Height = 21
         TabOrder = 3
       end
       object StringGridChat: TStringGrid

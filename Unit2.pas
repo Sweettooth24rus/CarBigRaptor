@@ -83,6 +83,8 @@ begin
   Form1.RichEditParams.Text := Form1.RichEditParams.Text + 'Привод                       ' + Q_Cars.FieldByName('DriveType').AsString + sLineBreak;
   Form1.RichEditParams.Text := Form1.RichEditParams.Text + 'Мощность, л.с.           ' + Q_Cars.FieldByName('CarTechPower').AsString + sLineBreak;
   Form1.RichEditParams.Text := Form1.RichEditParams.Text + 'Расположение руля    ' + Q_Cars.FieldByName('WheelType').AsString + sLineBreak;
+  if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
+    Form1.RichEditParams.Text := Form1.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
 
   if Q_Cars.FieldByName('CarCondition').AsInteger = 0 then
     Form7.RichEditParams.Text := 'Новая ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak
@@ -97,6 +99,8 @@ begin
   Form7.RichEditParams.Text := Form7.RichEditParams.Text + 'Привод                       ' + Q_Cars.FieldByName('DriveType').AsString + sLineBreak;
   Form7.RichEditParams.Text := Form7.RichEditParams.Text + 'Мощность, л.с.           ' + Q_Cars.FieldByName('CarTechPower').AsString + sLineBreak;
   Form7.RichEditParams.Text := Form7.RichEditParams.Text + 'Расположение руля    ' + Q_Cars.FieldByName('WheelType').AsString + sLineBreak;
+  if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
+    Form7.RichEditParams.Text := Form7.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
 
   if F3 then begin
     if Q_Cars.FieldByName('CarImage').AsString <> '' then begin
@@ -168,6 +172,10 @@ begin
   Form7.StringGridChat.Cols[1].Clear;
   Form7.StringGridChat.RowCount := 1;
 
+  Form1.StringGridChat.Cols[0].Clear;
+  Form1.StringGridChat.Cols[1].Clear;
+  Form1.StringGridChat.RowCount := 1;
+
   Q_Act.SQL.Clear;
   Q_Act.SQL.Add('SELECT Setter, Getter, Text FROM chat WHERE (Setter = ');
   Q_Act.SQL.Add(Q_Chat.FieldByName('Setter').AsString);
@@ -183,11 +191,16 @@ begin
   Q_Act.Active := True;
 
   while not DataModule2.Q_Act.Eof do begin
-    if DataModule2.Q_Act.FieldByName('Setter').AsInteger = UserID then
-      Form7.StringGridChat.Cells[1, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString
-    else
+    if DataModule2.Q_Act.FieldByName('Setter').AsInteger = UserID then begin
+      Form7.StringGridChat.Cells[1, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form1.StringGridChat.Cells[1, Form1.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+    end
+    else begin
       Form7.StringGridChat.Cells[0, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form1.StringGridChat.Cells[0, Form1.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+    end;
     Form7.StringGridChat.RowCount := Form7.StringGridChat.RowCount + 1;
+    Form1.StringGridChat.RowCount := Form1.StringGridChat.RowCount + 1;
     Q_Act.Next;
   end;
 end;
