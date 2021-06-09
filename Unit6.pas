@@ -123,6 +123,12 @@ begin
     SQL.Add(')');
     ExecSQL;
   end;
+  if DataModule2.UserType = 0 then begin
+    DataModule2.Q_Act.SQL.Clear;
+    DataModule2.Q_Act.SQL.Add('UPDATE user SET UserType = 1 WHERE UserID = ');
+    DataModule2.Q_Act.SQL.Add(IntToStr(DataModule2.UserID));
+    DataModule2.Q_Act.ExecSQL;
+  end;
   Form6.Close;
 end;
 

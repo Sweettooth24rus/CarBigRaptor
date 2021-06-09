@@ -38,6 +38,7 @@ type
   public
     { Public declarations }
     UserID: Integer;
+    UserType: Integer;
   end;
 
 var
@@ -54,6 +55,7 @@ uses ViewBuyer, Unit3, ViewSeller, ViewModerator, ViewAdministrator, ViewGuest;
 procedure TDataModule2.DataModuleCreate(Sender: TObject);
 begin
   UserID := 1;
+  UserType := 1;
 end;
 
 procedure TDataModule2.Q_CarsAfterScroll(DataSet: TDataSet);

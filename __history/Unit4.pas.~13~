@@ -1,0 +1,49 @@
+unit Unit4;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm4 = class(TForm)
+    Label1: TLabel;
+    PhoneJoin: TEdit;
+    PasswordJoin: TEdit;
+    JoinButton: TButton;
+    Label2: TLabel;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    RegisterButton: TButton;
+    PhoneRegister: TEdit;
+    PasswordRegister: TEdit;
+    Label5: TLabel;
+    NameRegister: TEdit;
+    procedure JoinButtonClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit3, ViewBuyer, Unit2;
+
+procedure TForm4.JoinButtonClick(Sender: TObject);
+begin
+  with DataModule2.Q_Act do
+  begin
+
+  end;
+end;
+
+end.

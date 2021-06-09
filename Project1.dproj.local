@@ -27,25 +27,25 @@
     <Transaction>2021.06.10 04:19:35.507,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewAdministrator.pas</Transaction>
     <Transaction>2021.06.10 04:42:32.120,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewGuest.pas</Transaction>
   </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ViewGuest.pas"/>
+    <File Path="ViewGuest.dfm"/>
     <File Path="ViewBuyer.pas"/>
     <File Path="ViewBuyer.dfm"/>
-    <File Path="Unit2.pas"/>
-    <File Path="Unit2.dfm"/>
-    <File Path="Unit3.pas"/>
-    <File Path="Unit3.dfm"/>
-    <File Path="Unit4.pas"/>
-    <File Path="Unit4.dfm"/>
-    <File Path="Unit6.pas"/>
-    <File Path="Unit6.dfm"/>
     <File Path="ViewSeller.pas"/>
     <File Path="ViewSeller.dfm"/>
-    <File Path="Unit8.pas"/>
-    <File Path="Unit8.dfm"/>
     <File Path="ViewModerator.pas"/>
     <File Path="ViewModerator.dfm"/>
     <File Path="ViewAdministrator.pas"/>
     <File Path="ViewAdministrator.dfm"/>
-    <File Path="ViewGuest.pas"/>
-    <File Path="ViewGuest.dfm"/>
+    <File Path="Unit2.pas"/>
+    <File Path="Unit2.dfm"/>
+    <File Path="Unit4.pas"/>
+    <File Path="Unit4.dfm"/>
+    <File Path="Unit6.pas"/>
+    <File Path="Unit6.dfm"/>
+    <File Path="Unit8.pas"/>
+    <File Path="Unit8.dfm"/>
+    <File Path="Unit3.pas"/>
+    <File Path="Unit3.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>
