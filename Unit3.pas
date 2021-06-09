@@ -64,13 +64,9 @@ type
     SellerAddress: TComboBox;
     Label15: TLabel;
     SellerCheckFilter: TCheckBox;
-    DBChart1: TDBChart;
-    Series1: TBarSeries;
     SoldCarSeller: TRichEdit;
     DBChart2: TDBChart;
     Series2: TBarSeries;
-    DBChart3: TDBChart;
-    Series3: TPieSeries;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ImageButtonClick(Sender: TObject);

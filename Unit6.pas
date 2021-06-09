@@ -77,7 +77,7 @@ begin
   with DataModule2.Q_Act do
   begin
     SQL.Clear;
-    SQL.Add('CALL InsertCarTmp(');
+    SQL.Add('CALL InsertCar(');
     SQL.Add(QuotedStr(IntToStr(ComboBoxBrand.ItemIndex + 1)));
     SQL.Add(', ');
     SQL.Add(QuotedStr(ComboBoxModel.Items[ComboBoxModel.ItemIndex]));

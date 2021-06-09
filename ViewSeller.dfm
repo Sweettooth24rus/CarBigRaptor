@@ -19,7 +19,7 @@ object Form7: TForm7
     Top = 8
     Width = 1305
     Height = 577
-    ActivePage = TabSheet4
+    ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1040#1074#1090#1086#1084#1086#1073#1080#1083#1080' '#1074' '#1087#1088#1086#1076#1072#1078#1077

@@ -48,7 +48,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses ViewBuyer, Unit3, ViewSeller;
+uses ViewBuyer, Unit3, ViewSeller, ViewModerator;
 
 {$R *.dfm}
 
@@ -69,6 +69,11 @@ begin
   Form7.CarSeller.Text := Q_Cars.FieldByName('UserPhone').AsString + ' ' +
   Q_Cars.FieldByName('UserName').AsString;
   Form7.CarImage.Picture.LoadFromFile(Q_Cars.FieldByName('CarImage').AsString);
+
+  Form9.CarInfo.Text := Q_Cars.FieldByName('CarDescription').AsString;
+  Form9.CarSeller.Text := Q_Cars.FieldByName('UserPhone').AsString + ' ' +
+  Q_Cars.FieldByName('UserName').AsString;
+  Form9.CarImage.Picture.LoadFromFile(Q_Cars.FieldByName('CarImage').AsString);
 
   if Q_Cars.FieldByName('CarCondition').AsInteger = 0 then
     Form1.RichEditParams.Text := 'Новая ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak
@@ -102,6 +107,22 @@ begin
   if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
     Form7.RichEditParams.Text := Form7.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
 
+  if Q_Cars.FieldByName('CarCondition').AsInteger = 0 then
+    Form9.RichEditParams.Text := 'Новая ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak
+  else
+    Form9.RichEditParams.Text := 'Б/У ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Год выпуска               ' + Q_Cars.FieldByName('CarBirth').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Цена, Р                       ' + Q_Cars.FieldByName('CarCost').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'КПП                            ' + Q_Cars.FieldByName('GearType').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Кузов                          ' + Q_Cars.FieldByName('CarBodyName').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Двигатель                  ' + Q_Cars.FieldByName('EngineTypeName').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Объём двигателя, л    ' + Q_Cars.FieldByName('CarTechEngineVolume').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Привод                       ' + Q_Cars.FieldByName('DriveType').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Мощность, л.с.           ' + Q_Cars.FieldByName('CarTechPower').AsString + sLineBreak;
+  Form9.RichEditParams.Text := Form9.RichEditParams.Text + 'Расположение руля    ' + Q_Cars.FieldByName('WheelType').AsString + sLineBreak;
+  if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
+    Form9.RichEditParams.Text := Form9.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
+
   if F3 then begin
     if Q_Cars.FieldByName('CarImage').AsString <> '' then begin
       Form3.CarImagePath := Q_Cars.FieldByName('CarImage').AsString;
@@ -132,8 +153,14 @@ begin
   Form7.ImageCarSeller.Picture.LoadFromFile(Q_CarsUser.FieldByName('CarImage').AsString);
   Form7.CarImagePath := Q_CarsUser.FieldByName('CarImage').AsString;
 
+  Form9.RichEditDescriptionSelf.Text := Q_CarsUser.FieldByName('CarDescription').AsString;
+  Form9.ImageCarSeller.Picture.LoadFromFile(Q_CarsUser.FieldByName('CarImage').AsString);
+  Form9.CarImagePath := Q_CarsUser.FieldByName('CarImage').AsString;
+
   Form7.ComboBoxModelSelf.ItemIndex := -1;
   Form7.ComboBoxModelSelf.Items.Clear;
+  Form9.ComboBoxModelSelf.ItemIndex := -1;
+  Form9.ComboBoxModelSelf.Items.Clear;
   Q_Model.SQL.Clear;
   Q_Model.SQL.Add('SELECT ModelName FROM CarTechModel WHERE ModelBrandID = ');
   Q_Model.SQL.Add(Q_CarsUser.FieldByName('BrandID').AsString);
@@ -142,6 +169,7 @@ begin
   Q_Model.Active := True;
   while not Q_Model.Eof do begin
     Form7.ComboBoxModelSelf.Items.Add(Q_Model.FieldByName('ModelName').AsString);
+    Form9.ComboBoxModelSelf.Items.Add(Q_Model.FieldByName('ModelName').AsString);
     Q_Model.Next;
   end;
 
@@ -164,17 +192,41 @@ begin
   else
     Form7.RadioButtonLeftSelf.Checked := True;
   Form7.EditAddress.Text := Q_CarsUser.FieldByName('CarAddress').AsString;
+
+  if Q_CarsUser.FieldByName('CarCondition').AsInteger = 0 then
+    Form9.RadioButtonNewSelf.Checked := True
+  else
+    Form9.RadioButtonUsedSelf.Checked := True;
+  Form9.ComboBoxBrandSelf.ItemIndex := Q_CarsUser.FieldByName('BrandID').AsInteger - 1;
+  Form9.ComboBoxModelSelf.ItemIndex := Form9.ComboBoxModelSelf.Items.IndexOf(Q_CarsUser.FieldByName('ModelName').AsString);
+  Form9.EditYear.Text := Q_CarsUser.FieldByName('CarBirth').AsString;
+  Form9.EditCost.Text := Q_CarsUser.FieldByName('CarCost').AsString;
+  Form9.ComboBoxGearSelf.ItemIndex := Q_CarsUser.FieldByName('GearID').AsInteger - 1;
+  Form9.ComboBoxBodySelf.ItemIndex := Q_CarsUser.FieldByName('CarBodyID').AsInteger - 1;
+  Form9.ComboBoxEngineSelf.ItemIndex := Q_CarsUser.FieldByName('EngineTypeID').AsInteger - 1;
+  Form9.EditVolume.Text := StringReplace(Q_CarsUser.FieldByName('CarTechEngineVolume').AsString, ',', '.', [rfReplaceAll]);
+  Form9.ComboBoxDriveSelf.ItemIndex := Q_CarsUser.FieldByName('DriveID').AsInteger - 1;
+  Form9.EditPower.Text := Q_CarsUser.FieldByName('CarTechPower').AsString;
+  if Q_CarsUser.FieldByName('WheelID').AsInteger = 2 then
+    Form9.RadioButtonRightSelf.Checked := True
+  else
+    Form9.RadioButtonLeftSelf.Checked := True;
+  Form9.EditAddress.Text := Q_CarsUser.FieldByName('CarAddress').AsString;
 end;
 
 procedure TDataModule2.Q_ChatAfterScroll(DataSet: TDataSet);
 begin
+  Form1.StringGridChat.Cols[0].Clear;
+  Form1.StringGridChat.Cols[1].Clear;
+  Form1.StringGridChat.RowCount := 1;
+
   Form7.StringGridChat.Cols[0].Clear;
   Form7.StringGridChat.Cols[1].Clear;
   Form7.StringGridChat.RowCount := 1;
 
-  Form1.StringGridChat.Cols[0].Clear;
-  Form1.StringGridChat.Cols[1].Clear;
-  Form1.StringGridChat.RowCount := 1;
+  Form9.StringGridChat.Cols[0].Clear;
+  Form9.StringGridChat.Cols[1].Clear;
+  Form9.StringGridChat.RowCount := 1;
 
   Q_Act.SQL.Clear;
   Q_Act.SQL.Add('SELECT Setter, Getter, Text FROM chat WHERE (Setter = ');
@@ -192,21 +244,27 @@ begin
 
   while not DataModule2.Q_Act.Eof do begin
     if DataModule2.Q_Act.FieldByName('Setter').AsInteger = UserID then begin
-      Form7.StringGridChat.Cells[1, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
       Form1.StringGridChat.Cells[1, Form1.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form7.StringGridChat.Cells[1, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form9.StringGridChat.Cells[1, Form9.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
     end
     else begin
-      Form7.StringGridChat.Cells[0, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
       Form1.StringGridChat.Cells[0, Form1.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form7.StringGridChat.Cells[0, Form7.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
+      Form9.StringGridChat.Cells[0, Form9.StringGridChat.RowCount - 1] := DataModule2.Q_Act.FieldByName('Text').AsString;
     end;
-    Form7.StringGridChat.RowCount := Form7.StringGridChat.RowCount + 1;
     Form1.StringGridChat.RowCount := Form1.StringGridChat.RowCount + 1;
+    Form7.StringGridChat.RowCount := Form7.StringGridChat.RowCount + 1;
+    Form9.StringGridChat.RowCount := Form9.StringGridChat.RowCount + 1;
     Q_Act.Next;
   end;
 end;
 
 procedure TDataModule2.Q_SellersAfterScroll(DataSet: TDataSet);
 begin
+  Form9.SellerImagePath := Q_Sellers.FieldByName('UserImage').AsString;
+  Form9.ImageSellers.Picture.LoadFromFile(Q_Sellers.FieldByName('UserImage').AsString);
+
   if F3 then begin
     if Q_Sellers.FieldByName('SellerImage').AsString <> '' then begin
       Form3.SellerImagePath := Q_Sellers.FieldByName('SellerImage').AsString;

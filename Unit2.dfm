@@ -76,16 +76,9 @@ object DataModule2: TDataModule2
     AfterScroll = Q_SellersAfterScroll
     Parameters = <>
     SQL.Strings = (
-      'SELECT '
-      'u.UserID, '
-      'u.UserName,'
-      'u.UserPhone,'
-      'u.UserImage, '
-      'SUM(sc.SoldCarCost) '
-      'FROM user u'
-      'LEFT OUTER JOIN soldcar sc'
-      'ON u.UserID = sc.UserID'
-      'GROUP BY u.UserID')
+      
+        'SELECT UserID, UserName, UserPhone, UserImage FROM user WHERE Us' +
+        'erType = 1  ORDER BY UserName ASC')
     Left = 32
     Top = 176
   end

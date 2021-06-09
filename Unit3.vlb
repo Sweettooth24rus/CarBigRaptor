@@ -13,9 +13,6 @@ Coordinates=139,582,77,51
 [DataModule2.Q_SoldCars]
 Coordinates=901,521,140,51
 
-[Series1]
-Coordinates=865,403,50,33
-
 [Label7]
 Coordinates=617,10,46,51
 
@@ -118,9 +115,6 @@ Coordinates=10,704,66,33
 [CarUpdate]
 Coordinates=373,582,66,51
 
-[Series3]
-Coordinates=865,715,50,33
-
 [SellerUpdate]
 Coordinates=745,521,77,51
 
@@ -144,9 +138,6 @@ Coordinates=1158,643,56,33
 
 [Series2]
 Coordinates=865,871,50,33
-
-[DBChart3]
-Coordinates=904,10,61,51
 
 [CarName]
 Coordinates=832,521,59,51
@@ -177,9 +168,6 @@ Coordinates=494,521,73,51
 
 [Label8]
 Coordinates=425,643,46,51
-
-[DBChart1]
-Coordinates=1096,10,61,51
 
 [Label10]
 Coordinates=683,521,52,51
@@ -219,4 +207,7 @@ Coordinates=226,582,137,51
 
 [DataModule2.Q_Engine]
 Coordinates=10,643,146,51
+
+[]
+Coordinates=1096,10,61,51
 

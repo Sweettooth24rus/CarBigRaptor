@@ -1,28 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.053,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit7.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.628,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit2.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.554,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\RKP-4\Unit5.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.708,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.093,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.476,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.947,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit1.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.947,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit1.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.747,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.476,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit3.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.053,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit7.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit2.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.074,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Project1.dproj=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.452,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit4.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.614,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit6.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.452,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.111,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.909,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\БазыДанных\Курсовая\Unit2.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.033,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.186,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.111,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit5.pas=</Transaction>
     <Transaction>2021.06.09 15:20:05.382,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit8.pas</Transaction>
     <Transaction>2021.06.09 16:59:09.914,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewSeller.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit7.dfm</Transaction>
     <Transaction>2021.06.09 16:59:09.914,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewSeller.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit7.pas</Transaction>
-    <Transaction>2021.06.09 17:10:30.202,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewBuyer.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit1.dfm</Transaction>
     <Transaction>2021.06.09 17:10:30.202,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewBuyer.pas=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit1.pas</Transaction>
+    <Transaction>2021.06.09 17:10:30.202,C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewBuyer.dfm=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\Unit1.dfm</Transaction>
+    <Transaction>2021.06.10 02:03:23.892,=C:\Users\kkoz0\Documents\Embarcadero\Studio\Projects\CarBigRaptor\ViewModerator.pas</Transaction>
   </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="ViewBuyer.pas"/>
     <File Path="ViewBuyer.dfm"/>
@@ -38,5 +39,7 @@
     <File Path="ViewSeller.dfm"/>
     <File Path="Unit8.pas"/>
     <File Path="Unit8.dfm"/>
+    <File Path="ViewModerator.pas"/>
+    <File Path="ViewModerator.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>
