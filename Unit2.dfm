@@ -197,4 +197,36 @@ object DataModule2: TDataModule2
     Left = 272
     Top = 288
   end
+  object Q_CarsUser: TADOQuery
+    Active = True
+    Connection = Connection
+    CursorType = ctStatic
+    AfterScroll = Q_CarsUserAfterScroll
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM CarTableForUser ORDER BY CarDate ASC')
+    Left = 32
+    Top = 232
+  end
+  object DS_CarsUser: TDataSource
+    DataSet = Q_CarsUser
+    Left = 112
+    Top = 232
+  end
+  object Q_Chat: TADOQuery
+    Active = True
+    Connection = Connection
+    CursorType = ctStatic
+    AfterScroll = Q_ChatAfterScroll
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM Chat WHERE Getter = 1')
+    Left = 32
+    Top = 288
+  end
+  object DS_Chat: TDataSource
+    DataSet = Q_Chat
+    Left = 112
+    Top = 288
+  end
 end

@@ -21,10 +21,14 @@ object Form3: TForm3
     Top = 8
     Width = 1353
     Height = 710
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1052#1072#1096#1080#1085#1099
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 3
         Top = 370
@@ -353,20 +357,39 @@ object Form3: TForm3
         TitleFont.Height = -13
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
-      end
-      object SellerName: TEdit
-        Left = 3
-        Top = 245
-        Width = 169
-        Height = 24
-        TabOrder = 1
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'UserID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UserName'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UserPhone'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UserImage'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'SUM(sc.SoldCarCost)'
+            Visible = True
+          end>
       end
       object SellerPhone: TEdit
         Left = 178
         Top = 245
         Width = 167
         Height = 24
-        TabOrder = 2
+        TabOrder = 1
       end
       object SellerAdd: TButton
         Left = 3
@@ -374,7 +397,7 @@ object Form3: TForm3
         Width = 102
         Height = 41
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-        TabOrder = 3
+        TabOrder = 2
         OnClick = SellerAddClick
       end
       object SellerUpdate: TButton
@@ -383,7 +406,7 @@ object Form3: TForm3
         Width = 103
         Height = 41
         Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-        TabOrder = 4
+        TabOrder = 3
         OnClick = SellerUpdateClick
       end
       object SellerDelete: TButton
@@ -392,7 +415,7 @@ object Form3: TForm3
         Width = 106
         Height = 41
         Caption = #1059#1076#1072#1083#1080#1090#1100
-        TabOrder = 5
+        TabOrder = 4
         OnClick = SellerDeleteClick
       end
       object SellerButton: TButton
@@ -401,7 +424,7 @@ object Form3: TForm3
         Width = 165
         Height = 41
         Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1080#1079#1086#1073#1088#1072#1078#1077#1085#1080#1077
-        TabOrder = 6
+        TabOrder = 5
         OnClick = SellerButtonClick
       end
       object SellerFilter: TComboBox
@@ -409,7 +432,7 @@ object Form3: TForm3
         Top = 360
         Width = 155
         Height = 24
-        TabOrder = 7
+        TabOrder = 6
         Text = #1060#1080#1083#1100#1090#1088
       end
       object SellerAddress: TComboBox
@@ -417,7 +440,7 @@ object Form3: TForm3
         Top = 245
         Width = 146
         Height = 24
-        TabOrder = 8
+        TabOrder = 7
         Text = 'SellerAddress'
       end
       object SellerCheckFilter: TCheckBox
@@ -426,7 +449,7 @@ object Form3: TForm3
         Width = 118
         Height = 17
         Caption = #1054#1090#1092#1080#1083#1100#1090#1088#1086#1074#1072#1090#1100
-        TabOrder = 9
+        TabOrder = 8
         OnClick = SellerCheckFilterClick
       end
       object DBChart1: TDBChart
@@ -442,7 +465,7 @@ object Form3: TForm3
         object Series1: TBarSeries
           ColorEachPoint = True
           DataSource = DataModule2.Q_Sellers
-          XLabelsSource = 'SellerName'
+          XLabelsSource = 'UserName'
           XValues.Name = 'X'
           XValues.Order = loAscending
           YValues.Name = 'Bar'
@@ -461,7 +484,7 @@ object Form3: TForm3
         View3DOptions.Orthogonal = False
         View3DOptions.Perspective = 0
         View3DOptions.Rotation = 360
-        TabOrder = 11
+        TabOrder = 9
         DefaultCanvas = 'TGDIPlusCanvas'
         ColorPaletteIndex = 13
         object Series3: TPieSeries
@@ -494,6 +517,10 @@ object Form3: TForm3
     object TabSheet3: TTabSheet
       Caption = #1055#1088#1086#1076#1072#1085#1085#1099#1077' '#1084#1072#1096#1080#1085#1099
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object SoldCarImage: TImage
         Left = 1084
         Top = 416

@@ -35,7 +35,6 @@ type
     Priority: TEdit;
     Label10: TLabel;
     DBGrid2: TDBGrid;
-    SellerName: TEdit;
     Label12: TLabel;
     Label13: TLabel;
     SellerPhone: TEdit;
@@ -99,7 +98,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit2, Unit1;
+uses Unit2, ViewBuyer;
 
 procedure TForm3.CarAddClick(Sender: TObject);
 begin

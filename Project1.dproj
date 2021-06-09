@@ -102,7 +102,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Unit1.pas">
+        <DCCReference Include="ViewBuyer.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -117,6 +117,17 @@
         </DCCReference>
         <DCCReference Include="Unit4.pas">
             <Form>Form4</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit6.pas">
+            <Form>Form6</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ViewSeller.pas">
+            <Form>Form7</Form>
+        </DCCReference>
+        <DCCReference Include="Unit8.pas">
+            <Form>Form8</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

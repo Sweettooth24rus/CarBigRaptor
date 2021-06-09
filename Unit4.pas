@@ -30,7 +30,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit3, Unit1;
+uses Unit3, ViewBuyer;
 
 procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
