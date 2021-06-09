@@ -72,7 +72,6 @@ type
     procedure ImageButtonClick(Sender: TObject);
     procedure CarAddClick(Sender: TObject);
     procedure CarUpdateClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure CarSellClick(Sender: TObject);
     procedure SellerAddClick(Sender: TObject);
     procedure SellerUpdateClick(Sender: TObject);
@@ -209,11 +208,6 @@ end;
 procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form1.Visible := True;
-end;
-
-procedure TForm3.FormCreate(Sender: TObject);
-begin
-  DataModule2.F3 := True;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);

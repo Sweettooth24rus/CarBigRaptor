@@ -32,40 +32,13 @@ object DataModule2: TDataModule2
     Top = 64
   end
   object Q_SoldCars: TADOQuery
+    Active = True
     Connection = Connection
     CursorType = ctStatic
     AfterScroll = Q_SoldCarsAfterScroll
     Parameters = <>
     SQL.Strings = (
-      'SELECT '
-      'sc.SoldCarID, '
-      'ct.CarTechName, '
-      'cb.CarBodyName, '
-      'et.EngineTypeName, '
-      'ct.CarTechEngineVolume, '
-      'ct.CarTechPower, '
-      'g.GearType, '
-      'd.DriveType,'
-      'sc.SoldCarBirth, '
-      'sc.SoldCarCost, '
-      'sc.SoldCarDate, '
-      'sc.SoldCarImage, '
-      'sc.SoldCarDescription, '
-      's.SellerID, '
-      's.SellerName, '
-      's.SellerPhone, '
-      'a.AdressName '
-      
-        'FROM soldcar sc, cartech ct, carbody cb, enginetype et, gear g, ' +
-        'drive d, seller s, address a'
-      'WHERE sc.CarTechID = ct.CarTechID'
-      'AND ct.CarBodyID = cb.CarBodyID'
-      'AND ct.EngineTypeID = et.EngineTypeID'
-      'AND ct.GearID = g.GearID'
-      'AND ct.DriveID = d.DriveID'
-      'AND sc.SellerID = s.SellerID'
-      'AND s.AddressID = a.AddressID'
-      'ORDER BY sc.SoldCarDate DESC')
+      'SELECT * FROM SoldCarTableForUser ORDER BY CarDate ASC')
     Left = 32
     Top = 120
   end
@@ -134,7 +107,7 @@ object DataModule2: TDataModule2
       'FROM soldcar'
       'GROUP BY soldcar.SoldCarDate')
     Left = 32
-    Top = 456
+    Top = 344
   end
   object Q_SellersBlock: TADOQuery
     Connection = Connection
