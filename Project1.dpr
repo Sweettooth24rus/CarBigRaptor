@@ -10,13 +10,15 @@ uses
   ViewSeller in 'ViewSeller.pas' {Form7},
   Unit8 in 'Unit8.pas' {Form8},
   ViewModerator in 'ViewModerator.pas' {Form9},
-  ViewAdministrator in 'ViewAdministrator.pas' {Form10};
+  ViewAdministrator in 'ViewAdministrator.pas' {Form10},
+  ViewGuest in 'ViewGuest.pas' {Form11};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm11, Form11);
   Application.CreateForm(TForm10, Form10);
   Application.CreateForm(TForm9, Form9);
   Application.CreateForm(TForm1, Form1);

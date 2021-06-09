@@ -47,7 +47,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses ViewBuyer, Unit3, ViewSeller, ViewModerator, ViewAdministrator;
+uses ViewBuyer, Unit3, ViewSeller, ViewModerator, ViewAdministrator, ViewGuest;
 
 {$R *.dfm}
 
@@ -77,6 +77,11 @@ begin
   Form10.CarSeller.Text := Q_Cars.FieldByName('UserPhone').AsString + ' ' +
   Q_Cars.FieldByName('UserName').AsString;
   Form10.CarImage.Picture.LoadFromFile(Q_Cars.FieldByName('CarImage').AsString);
+
+  Form11.CarInfo.Text := Q_Cars.FieldByName('CarDescription').AsString;
+  Form11.CarSeller.Text := Q_Cars.FieldByName('UserPhone').AsString + ' ' +
+  Q_Cars.FieldByName('UserName').AsString;
+  Form11.CarImage.Picture.LoadFromFile(Q_Cars.FieldByName('CarImage').AsString);
 
   if Q_Cars.FieldByName('CarCondition').AsInteger = 0 then
     Form1.RichEditParams.Text := 'Новая ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak
@@ -141,6 +146,22 @@ begin
   Form10.RichEditParams.Text := Form10.RichEditParams.Text + 'Расположение руля    ' + Q_Cars.FieldByName('WheelType').AsString + sLineBreak;
   if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
     Form10.RichEditParams.Text := Form10.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
+
+  if Q_Cars.FieldByName('CarCondition').AsInteger = 0 then
+    Form11.RichEditParams.Text := 'Новая ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak
+  else
+    Form11.RichEditParams.Text := 'Б/У ' + Q_Cars.FieldByName('CarName').AsString + sLineBreak + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Год выпуска               ' + Q_Cars.FieldByName('CarBirth').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Цена, Р                       ' + Q_Cars.FieldByName('CarCost').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'КПП                            ' + Q_Cars.FieldByName('GearType').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Кузов                          ' + Q_Cars.FieldByName('CarBodyName').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Двигатель                  ' + Q_Cars.FieldByName('EngineTypeName').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Объём двигателя, л    ' + Q_Cars.FieldByName('CarTechEngineVolume').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Привод                       ' + Q_Cars.FieldByName('DriveType').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Мощность, л.с.           ' + Q_Cars.FieldByName('CarTechPower').AsString + sLineBreak;
+  Form11.RichEditParams.Text := Form11.RichEditParams.Text + 'Расположение руля    ' + Q_Cars.FieldByName('WheelType').AsString + sLineBreak;
+  if Q_Cars.FieldByName('CarAddress').AsString.CompareTo('').ToBoolean then
+    Form11.RichEditParams.Text := Form11.RichEditParams.Text + sLineBreak + 'Адрес                          ' + Q_Cars.FieldByName('CarAddress').AsString;
 end;
 
 procedure TDataModule2.Q_CarsUserAfterScroll(DataSet: TDataSet);
